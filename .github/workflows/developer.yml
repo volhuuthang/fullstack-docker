@@ -36,10 +36,13 @@ jobs:
         run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/my-fullstack-frontend:latest
 
       - name: Docker Compose Down
-        run: docker-compose down || true
+        run: docker compose down || true
 
       - name: Docker Compose Up
-        run: docker-compose up -d
+        run: docker compose up -d
+
+      - name: Check Docker Compose services status
+        run: docker compose ps
 
       - name: Clean up Docker images (optional)
         run: docker image prune -f
