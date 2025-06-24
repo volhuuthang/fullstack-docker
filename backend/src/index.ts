@@ -12,7 +12,7 @@ app.use('/api/counter', counterRoutes);
 app.use('/api/notes', notesRoutes);
 app.use('/api/redis', redisRoutes);
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Backend server is running on port ${PORT}`);
 });
