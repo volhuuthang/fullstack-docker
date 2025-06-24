@@ -17,7 +17,6 @@ export default function Home() {
   return (
     <main style={{ padding: 24 }}>
       <h1>Số lượt truy cập: {count !== null ? count : 'Đang tải...'}</h1>
-      <p style={{ color: '#888' }}>(Nguồn: {source})</p>
       <div style={{ marginTop: 32 }}>
         <a href="/notes" style={{ marginRight: 16 }}>Quản lý Ghi chú</a>
         <a href="/redis-admin">Quản lý Cache (Redis)</a>
