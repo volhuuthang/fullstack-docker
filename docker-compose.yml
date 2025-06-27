@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   frontend:
-    image: volehuuthang/my-fullstack-frontend:latest
+    image: volhuuthang/my-fullstack-frontend:latest
     ports:
       - "${FRONTEND_PORT}:3000"
     depends_on:
@@ -9,7 +9,7 @@ services:
     environment:
       - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
   backend:
-    image: volehuuthang/my-fullstack-backend:latest
+    image: volhuuthang/my-fullstack-backend:latest
     ports:
       - "${BACKEND_PORT}:3001"
     depends_on:
