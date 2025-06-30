@@ -24,6 +24,7 @@ export const getCounter = async (req: Request, res: Response) => {
     await redisClient.set('visitor_count', dbCount.toString());
     return res.json({ count: dbCount, source: 'mysql' });
   } catch (err) {
+    console.error('Lỗi counter:', err);
     return res.status(500).json({ error: 'Internal server error' });
   }
 };
