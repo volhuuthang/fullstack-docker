@@ -1,10 +1,16 @@
 import { createClient } from 'redis';
 
+const host = process.env.REDIS_HOST || 'cache'; // đảm bảo tên service trong Docker
+const port = process.env.REDIS_PORT || '6379';
+
 const redisClient = createClient({
-  url: `redis://${process.env.REDIS_HOST || 'localhost'}:${process.env.REDIS_PORT || 6379}`
+  socket: {
+    host,
+    port: Number(port),
+  },
 });
 
-redisClient.on('error', (err) => console.error('Redis Client Error', err));
+redisClient.on('error', (err) => console.error('❌ Redis Client Error:', err));
 
 (async () => {
   if (!redisClient.isOpen) await redisClient.connect();
